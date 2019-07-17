@@ -1,0 +1,84 @@
+
+# Compiled source #
+###################
+*.com
+*.class
+*.exe
+*.o
+*.so
+ 
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+ 
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+ 
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+.project
+.classpath
+
+# Visual Studio #
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+# Visual Studio 2015/2017 cache/options directory
+.vs/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+#Ignore thumbnails created by Windows
+#Ignore files built by Visual Studio
+*.obj
+*.pdb
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+[Bb]in
+[Dd]ebug*/
+*.lib
+*.sbr
+obj/
+#[Rr]elease*/
+_ReSharper*/
+[Tt]est[Rr]esult*
+#Nuget packages folder
+packages/
+*.dll
