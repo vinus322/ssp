@@ -32,8 +32,8 @@
 ehthumbs.db
 Icon?
 Thumbs.db
-#.project
-#.classpath
+.project
+.classpath
 
 # Visual Studio #
 # Build results
@@ -44,7 +44,7 @@ Thumbs.db
 x64/
 x86/
 bld/
-#[Bb]in/
+[Bb]in/
 [Oo]bj/
 [Ll]og/
 
