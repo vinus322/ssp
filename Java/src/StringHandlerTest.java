@@ -1,4 +1,3 @@
-package string;
 
 public class StringHandlerTest {
 

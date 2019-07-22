@@ -1,4 +1,3 @@
-package string;
 
 /*
  * @author KANG LEE
