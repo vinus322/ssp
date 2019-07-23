@@ -5,15 +5,15 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        /**
-         * Á¤·Ä sort
+    	/**
+         * ì •ë ¬ sort
          */
         List<Person> list = new ArrayList<>();
-        list.add(new Person("È«¼ºÈÆ",33));
-        list.add(new Person("È«¼ºÃæ",31));
-        list.add(new Person("ÇìÇìÇì",43));
-        list.add(new Person("°¡³ª´Ù",53));
-        list.add(new Person("È«°¡³ª",23));
+        list.add(new Person("È«ï¿½ï¿½ï¿½ï¿½",33));
+        list.add(new Person("È«ï¿½ï¿½ï¿½ï¿½",31));
+        list.add(new Person("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",43));
+        list.add(new Person("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",53));
+        list.add(new Person("È«ï¿½ï¿½ï¿½ï¿½",23));
 
 
         System.out.println(list);
@@ -24,10 +24,10 @@ public class Main {
 
 
         /**
-         * ÆÄÀÏ ÀÔÃâ·Â
+         * íŒŒì¼ ì…ì¶œë ¥
          */
         try{
-            //ÆÄÀÏ ¾²±â
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             File file = new File("test.txt");
             FileWriter fileWriter = new FileWriter(file);
             BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
@@ -40,7 +40,7 @@ public class Main {
             fileWriter.close();
 
 
-            //ÆÄÀÏ ÀĞ±â
+            //ï¿½ï¿½ï¿½ï¿½ ï¿½Ğ±ï¿½
             File fileout = new File("test.txt");
             FileReader fileReader = new FileReader(fileout);
             BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -55,29 +55,31 @@ public class Main {
 
 
         /**
-         * ÆÄÀÏ ÀĞ´Â ¸Ş¼­µå ½ÇÇàºÎ
+         * íŒŒì¼ ì½ëŠ” ë©”ì„œë“œ ì‹¤í–‰ë¶€
          */
         try {
             List<String> strList = FileReaderH.readAll("text.txt", "PRINT");
             System.out.println(strList);
+            
+            FileReaderH.writeAll("out.txt", strList);
         }
         catch(Exception e){
             System.out.println(e.getMessage());
         }
 
         /**
-         * ¿ÜºÎ ÇÁ·Î±×·¥ ½ÇÇà ¸Ş¼­µå ½ÇÇàºÎ
+         * ì™¸ë¶€ í”„ë¡œê·¸ë¨ ì‹¤í–‰ ë©”ì„œë“œ ì‹¤í–‰ë¶€
          */
         try{
             String ret = ProcessH.run("Project1.exe","test","4");
-            System.out.println("¹ŞÀº °ª : "+ret);
+            System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ : "+ret);
         }
         catch (Exception e){
             System.out.println(e.getMessage());
         }
 
         /**
-         * ¼ÒÄÏ
+         * ì†Œì¼“
          */
     }
 }
