@@ -82,3 +82,4 @@ _ReSharper*/
 #Nuget packages folder
 packages/
 *.dll
+Java/\.settings/
