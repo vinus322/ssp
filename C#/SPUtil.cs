@@ -15,13 +15,10 @@ namespace SPUtil
     public class SPUtil
     {
         static ConcurrentDictionary<string, List<string>> inputData = null;
-        
+
         static SPUtil()
         {
             inputData = new ConcurrentDictionary<string, List<string>>();
-            inputData.TryAdd("A", new List<string>());
-            inputData.TryAdd("B", new List<string>());
-            inputData.TryAdd("C", new List<string>());
         }
 
         /// <summary>
@@ -30,6 +27,10 @@ namespace SPUtil
         /// <param name="fileName"></param>
         public static void ReadFile(string fileName)
         {
+            inputData.TryAdd("A", new List<string>());
+            inputData.TryAdd("B", new List<string>());
+            inputData.TryAdd("C", new List<string>());
+
             String line;
             using (StreamReader sr = new StreamReader(fileName))
             {
@@ -54,7 +55,7 @@ namespace SPUtil
             // Append text to an existing file named "WriteLines.txt".
             using (StreamWriter outputFile = new StreamWriter(fileName, append))
             {
-                outputFile.Write(text); ;
+                outputFile.Write(text);
             }
         }
 
@@ -126,18 +127,18 @@ namespace SPUtil
             string clientName = "";
 
             while (c.Connected)
-            { 
+            {
                 buffer = new byte[bufferSize];
 
                 try
                 {
                     nRead = ns.Read(buffer, 0, bufferSize);
                     line = Encoding.Default.GetString(buffer, 0, nRead);
-                    
+
                     Console.WriteLine("Received Data : {0} from {1}", c.Client.RemoteEndPoint);
 
                     /* 출력용 클라이언트인가 프린트를 전송 */
-                    if (clientName.Equals("PRINT_CLIENT") && 
+                    if (clientName.Equals("PRINT_CLIENT") &&
                         line.Equals("PRINT"))
                     {
                         string outputData = MakeSocketPrintData();
@@ -150,14 +151,14 @@ namespace SPUtil
                         clientName = line;
                         inputData[clientName] = new List<string>();
                     }
-                    else 
+                    else
                     {
                         DoSocketLineJob(clientName, line);
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
-                
+
                 }
             }
         }
@@ -180,17 +181,17 @@ namespace SPUtil
         static List<string> DoFileLineJob(string line)
         {
             string[] items = line.Split((",").ToCharArray());
-            
+
             inputData["A"].Add(items[0]);
             //inputData["A"].Sort();
-            
+
             inputData["B"].Add(items[1]);
             // inputData["B"].Sort();
 
-            inputData["C"].Add(items[2]);            
+            inputData["C"].Add(items[2]);
             // inputData["C"].Sort();
 
-            
+
             return items.ToList<string>();
         }
 
@@ -216,7 +217,7 @@ namespace SPUtil
         static void SendData(NetworkStream ns, string data)
         {
             byte[] bufs = Encoding.Default.GetBytes(data);
-            ns.Write(bufs, 0, bufs.Length );
+            ns.Write(bufs, 0, bufs.Length);
         }
     }
 }
