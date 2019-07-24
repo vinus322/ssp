@@ -24,26 +24,45 @@ namespace SPUtil
         /// <summary>
         /// 입력 파일 읽기
         /// </summary>
-        /// <param name="fileName"></param>
-        public static void ReadFile(string fileName)
+        /// <param name="inFileName"></param>
+        public static void ReadFile(string inFileName)
         {
             inputData.TryAdd("A", new List<string>());
             inputData.TryAdd("B", new List<string>());
             inputData.TryAdd("C", new List<string>());
 
             String line;
-            using (StreamReader sr = new StreamReader(fileName))
+            using (StreamReader sr = new StreamReader(inFileName))
             {
                 while (sr.Peek() > -1)
                 {
                     line = sr.ReadLine();
 
                     if (line.Equals("PRINT"))
+                    {
+                        // 출력 파일에 출력
+                        string printData = MakeFilePrintData();
+
+                        string outFileName = "output.txt";
+                        WriteFile(string.Format("OUTFILE\\{0}", outFileName), printData, false);
+
                         break;
+                    }
 
                     DoFileLineJob(line);
                 }
             }
+        }
+
+        /// <summary>
+        /// 출력 파일에 기록할 데이터 생성
+        /// </summary>
+        /// <returns></returns>
+        static string MakeFilePrintData()
+        {
+            string ret = string.Empty;
+ 
+            return ret;
         }
 
         /// <summary>
