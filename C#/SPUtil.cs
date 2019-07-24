@@ -23,6 +23,7 @@ namespace SPUtil
 
         /// <summary>
         /// 입력 파일 읽기
+        /// SPUtil.SPUtil.ReadFile("aa.txt");
         /// </summary>
         /// <param name="inFileName"></param>
         public static void ReadFile(string inFileName)
