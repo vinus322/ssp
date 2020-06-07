@@ -90,12 +90,20 @@ namespace SPUtil
             start.FileName = fileName;
             start.UseShellExecute = false;
             start.RedirectStandardOutput = true;
+            start.RedirectStandardInput = true;
             start.WindowStyle = ProcessWindowStyle.Hidden;
             start.CreateNoWindow = true;
             start.Arguments = args;
 
             using (Process process = Process.Start(start))
             {
+                // Input 값 전달
+                using (StreamWriter writer = process.StandardInput)
+                {
+                    writer.WriteLine("INPUT");
+                }
+                
+                // Output 값을 가져옴
                 using (StreamReader reader = process.StandardOutput)
                 {
                     return reader.ReadToEnd();
